@@ -5,8 +5,9 @@ import {
   Nav,
   NavDropdown,
   Form,
-  FormControl,
+  FormControl
 } from "react-bootstrap";
+import { Link } from 'react-router-dom'
 
 
 const  Navbare =()=> {
@@ -14,7 +15,7 @@ const  Navbare =()=> {
     return (
       <div>
         <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+          <Navbar.Brand href="#">Ga3da Commerce</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -22,9 +23,9 @@ const  Navbare =()=> {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="#action1">Home</Nav.Link>
-              <Nav.Link href="#action2">Link</Nav.Link>
-              <NavDropdown title="Link" id="navbarScrollingDropdown">
+              <Nav.Link href="/login"><Link to="/login">Login</ Link></Nav.Link>
+              <Nav.Link href="/signup"><Link to="/signup">Signup</ Link></Nav.Link>
+              <NavDropdown title="Categories" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">
                   Another action
@@ -34,9 +35,7 @@ const  Navbare =()=> {
                   Something else here
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="#" disabled>
-                Link
-              </Nav.Link>
+              
             </Nav>
             <Form className="d-flex">
               <FormControl
