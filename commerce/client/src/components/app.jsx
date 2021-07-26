@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Navbare from './Navbar.jsx'
 
 export default class App extends React.Component{
 
@@ -7,7 +7,9 @@ export default class App extends React.Component{
 
     render(){
         return (
-            <div>ga3daa</div>
+            <div>
+                <Navbare />
+            </div>
         )
     }
 }
