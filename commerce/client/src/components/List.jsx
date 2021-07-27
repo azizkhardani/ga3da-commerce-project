@@ -1,11 +1,15 @@
-import React from 'react';
+import React from "react";
+import ItemDetails from "./ItemDetails.jsx";
 
-const List=()=>{
-    return(
-        <div>
-            hfbgvt
-        </div>
-    )
-}
+const List = (props) => {
+  return (
+    <div className="container">
+      {props.items.map((item, index) => (
+          
+        <ItemDetails item={item} key={index} />
+      ))}
+    </div>
+  );
+};
 
-export default List
+export default List;
