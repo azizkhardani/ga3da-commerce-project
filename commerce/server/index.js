@@ -25,6 +25,29 @@ app.post('/api/user', async (req, res) =>{
 })
 
 
+// app.get("/Items", (req, res)=>{
+//   Item.find({}, (err, data)=>{
+//     if (err){
+//       res.send(500)
+//     }else {
+//       res.send(data)
+//     }
+//   })
+// })
+
+
+// app.post("/Items", (req, res)=>{
+//   Item.create((req.body), (err, data)=>{
+//     if (err){
+//       res.send(500)
+//     }else{
+//       res.send(data)
+//     }
+//   })
+// })
+
+
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
   });

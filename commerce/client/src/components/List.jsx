@@ -1,17 +1,13 @@
-import React from 'react';
+import React from "react";
+import ItemDetails from "./ItemDetails.jsx";
 
-// const data = [];
-const List=()=>{
-    return(
-        <div>
-            {/* {data.map((item, key)=>{
-                <li>
-                    {item.name}
-
-                </li>
-            })} */}
-        </div>
-    )
-}
-
-export default List
+const List = (props) => {
+  return (
+    <div className="container">
+      {props.items.map((item, index) => (
+        <ItemDetails item={item} key={index} />
+      ))}
+    </div>
+  );
+};
+export default List;
