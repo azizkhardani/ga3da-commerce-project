@@ -6,14 +6,15 @@ import List from './List.jsx'
 import axios from 'axios';
 
 
-export default class App extends React.Component{
 
+export default class App extends React.Component{
     constructor(props) {
         super(props)
         this.state = {
             view : "home",
             data : []
         }
+        this.changeView = this.changeView.bind(this)
     }
 
     // componentDidMount(){

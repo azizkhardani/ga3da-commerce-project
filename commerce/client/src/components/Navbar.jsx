@@ -35,6 +35,7 @@ const  Navbare =(props)=> {
                   Something else here
                 </NavDropdown.Item>
               </NavDropdown>
+              <Nav.Link href="/profile">Profil</Nav.Link>
               
             </Nav>
             <Form className="d-flex">
@@ -45,6 +46,7 @@ const  Navbare =(props)=> {
                 aria-label="Search"
               />
               <Button variant="outline-success">Search</Button>
+              <Nav.Link onClick={()=>props.changeView('login')}>Basket</Nav.Link>
             </Form>
           </Navbar.Collapse>
         </Navbar>
