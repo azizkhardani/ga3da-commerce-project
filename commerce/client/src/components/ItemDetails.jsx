@@ -11,8 +11,6 @@ const ItemDetails = (props) => {
           <h5>{props.item.price}</h5>
           <h5>{props.item.itemDescription}</h5>
           <h5>{props.item.quantity}</h5>
-        <button>Delete</button>
-        <button>Update</button>
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.post('/api/user', async (req, res) =>{
    try{
      
-    var user = await Item.create([{itemName: req.body.itemName},{itemDescription: req.body.itemDescription},{imageUrl: req.body.imageUrl},{price: req.body.price},{quantity: req.body.quantity}])
+    var user = await Item.create([{itemName: req.body.itemName, itemDescription: req.body.itemDescription, imageUrl: req.body.imageUrl, price: req.body.price, quantity: req.body.quantity}])
     console.log(req.body.itemName)
 
     res.send(user)
@@ -22,6 +22,17 @@ app.post('/api/user', async (req, res) =>{
    catch(err){
      console.log(err)
    }
+})
+
+
+
+app.get("/Items", async (req, res)=>{
+  try {
+    const findItems = await Item.find({});
+    res.send(findItems);
+  } catch (err) {
+    console.log(err);
+  }
 })
 
 
@@ -34,6 +45,7 @@ app.post('/api/user', async (req, res) =>{
 //     }
 //   })
 // })
+
 
 
 // app.post("/Items", (req, res)=>{
