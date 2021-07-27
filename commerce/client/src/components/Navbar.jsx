@@ -11,7 +11,7 @@ import {
 
 
 const  Navbare =(props)=> {
-  
+  console.log(props);
     return (
       <div>
         <Navbar bg="light" expand="lg">
@@ -23,11 +23,11 @@ const  Navbare =(props)=> {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link onClick={()=>props.changeView('login')}>Login</Nav.Link> 
-              <Nav.Link >Signup</Nav.Link>
+              <Nav.Link onClick={()=>props.handleChange('login')}>Login</Nav.Link>
+              <Nav.Link onClick={()=>props.handleChange('sign up')}> Signup </Nav.Link>
               <NavDropdown title="Categories" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
+                <NavDropdown.Item >Action</NavDropdown.Item>
+                <NavDropdown.Item >
                   Another action
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
@@ -46,7 +46,7 @@ const  Navbare =(props)=> {
                 aria-label="Search"
               />
               <Button variant="outline-success">Search</Button>
-              <Nav.Link onClick={()=>props.changeView('login')}>Basket</Nav.Link>
+              <Nav.Link onClick={()=>props.handleChange('login')}>Basket</Nav.Link>
             </Form>
           </Navbar.Collapse>
         </Navbar>

@@ -1,10 +1,8 @@
 const mongoose = require('mongoose');
 const mongoUri = 'mongodb://localhost/commerce';
 
-mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true },()=>{
-    console.log('connected !!')
-} );
-const db = mongoose.Connection;
+
+const db = mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true } );
 
   
 module.exports = db;

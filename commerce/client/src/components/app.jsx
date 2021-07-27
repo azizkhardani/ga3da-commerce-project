@@ -3,7 +3,7 @@ import Navbare from "./Navbar.jsx";
 import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
 import List from "./List.jsx";
-import axios from 'axios';
+import axios from "axios";
 
 
 
@@ -12,10 +12,21 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       view: "home",
-      items: [],
-    }
+      data: []
+    };
+  }
 
-    this.changeView = this.changeView.bind(this)
+  componentDidMount(){
+      this.fetchUsers()
+  }
+
+  fetchUsers () {
+      axios.get('/users').then(result=>{
+          this.setState({
+              data: result.data
+          })
+          console.log(data, 'users data');
+      })
   }
 
   changeView(option) {
@@ -27,7 +38,9 @@ export default class App extends React.Component {
   renderView() {
     const { view } = this.state;
     if (view === "home") {
-      return <Navbare changeView = {this.changeView}/>;
+      return <Navbare />;
+    } else if (view === "sign up") {
+      return <Signup />
     }
   }
 
