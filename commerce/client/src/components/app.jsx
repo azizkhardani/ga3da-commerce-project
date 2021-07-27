@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbare from './Navbar.jsx'
 import Login from './Login.jsx'
 import Signup from './Signup.jsx'
@@ -14,14 +14,15 @@ export default class App extends React.Component{
          this.state={
              basket:[]
          }
-     }
+     
 
+      }
 
     render(){
         return (
             <div>
-                <Router>
-                <Navbare />
+                {/* <Router>
+                <Navbare /> 
                 <Switch>
                 <Route exact path='/' component={List} />
                 <Route  path='/login' component={Login} />
@@ -29,7 +30,7 @@ export default class App extends React.Component{
                 <Route  path='/profil' component={Profile} />
                 <Route  path='/basket' component={()=>(<Basket  basket={this.state.basket}  />)} />
                 </Switch>
-                </Router>
+                </Router> */}
             </div>
         )
     }
