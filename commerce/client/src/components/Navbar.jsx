@@ -35,6 +35,7 @@ const  Navbare =()=> {
                   Something else here
                 </NavDropdown.Item>
               </NavDropdown>
+              <Nav.Link href="/profile"><Link to="/profil">Profil</ Link></Nav.Link>
               
             </Nav>
             <Form className="d-flex">
@@ -45,6 +46,7 @@ const  Navbare =()=> {
                 aria-label="Search"
               />
               <Button variant="outline-success">Search</Button>
+              <Nav.Link href="/basket"><Link to="/basket">Basket</ Link></Nav.Link>
             </Form>
           </Navbar.Collapse>
         </Navbar>
