@@ -23,19 +23,25 @@ import axios from 'axios';
 //   };
 
 const Login=()=>{
-    // const [username, setUsername] = useState('');
-    // const [password, setPassword] = useState('');
-    
+
+
+
     return(
         <div>
             <form id="loginForm" action="login">
                 <h3>Login</h3>
                 <br />
                 <label id="emailLabel"> Email </label> <br />
-                <input id="emailInput" type="text" placeholder="email@example.com" />
+                <input id="emailInput" type="text" placeholder="email@example.com" 
+                onChange={(e)=>{
+                    setUsername(e.target.value)
+                }} />
                 <br />
                 <label id="passwordLabel"> Password </label> <br />
-                <input id="passwordInput" type="password" placeholder="enter your password"/>
+                <input id="passwordInput" type="password" placeholder="enter your password"
+                onChange={(e)=>{
+                    setPassword(e.target.value)
+                }} />
                 <br />
                 <button id="loginBtn" > Login </button>
                 <br />

@@ -46,7 +46,7 @@ const  Navbare =(props)=> {
                 aria-label="Search"
               />
               <Button variant="outline-success">Search</Button>
-              <Nav.Link onClick={()=>props.changeView('login')}>Basket</Nav.Link>
+              <Nav.Link onClick={()=>props.handleChange('login')}>Basket</Nav.Link>
             </Form>
           </Navbar.Collapse>
         </Navbar>
