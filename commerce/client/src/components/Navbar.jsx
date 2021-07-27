@@ -7,15 +7,15 @@ import {
   Form,
   FormControl
 } from "react-bootstrap";
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 
-const  Navbare =()=> {
+const  Navbare =(props)=> {
   
     return (
       <div>
         <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="/">Ga3da Commerce</Navbar.Brand>
+          <Navbar.Brand >Ga3da Commerce</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -23,8 +23,8 @@ const  Navbare =()=> {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="/login"><Link to="/login">Login</ Link></Nav.Link>
-              <Nav.Link href="/signup"><Link to="/signup">Signup</ Link></Nav.Link>
+              <Nav.Link onClick={()=>props.changeView('login')}>Login</Nav.Link> 
+              <Nav.Link >Signup</Nav.Link>
               <NavDropdown title="Categories" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">
@@ -35,7 +35,7 @@ const  Navbare =()=> {
                   Something else here
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="/profile"><Link to="/profil">Profil</ Link></Nav.Link>
+              <Nav.Link href="/profile">Profil</Nav.Link>
               
             </Nav>
             <Form className="d-flex">
@@ -46,7 +46,7 @@ const  Navbare =()=> {
                 aria-label="Search"
               />
               <Button variant="outline-success">Search</Button>
-              <Nav.Link href="/basket"><Link to="/basket">Basket</ Link></Nav.Link>
+              <Nav.Link onClick={()=>props.changeView('login')}>Basket</Nav.Link>
             </Form>
           </Navbar.Collapse>
         </Navbar>
