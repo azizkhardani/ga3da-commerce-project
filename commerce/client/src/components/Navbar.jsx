@@ -15,7 +15,7 @@ const  Navbare =()=> {
     return (
       <div>
         <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="#">Ga3da Commerce</Navbar.Brand>
+          <Navbar.Brand href="/">Ga3da Commerce</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav

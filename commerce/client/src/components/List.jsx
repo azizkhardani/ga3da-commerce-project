@@ -1,9 +1,15 @@
 import React from 'react';
 
+// const data = [];
 const List=()=>{
     return(
         <div>
-            hfbgvt
+            {/* {data.map((item, key)=>{
+                <li>
+                    {item.name}
+
+                </li>
+            })} */}
         </div>
     )
 }
