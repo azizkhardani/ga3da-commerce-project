@@ -28,6 +28,13 @@ export default class App extends React.Component {
   }
 
   render() {
-    return <div>{this.renderView.bind(this)}</div>;
+    return (
+    
+        <div>
+            {this.renderView.bind(this)}
+            
+        </div>
+        
+    )
   }
 }
