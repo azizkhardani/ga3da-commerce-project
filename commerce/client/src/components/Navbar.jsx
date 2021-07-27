@@ -7,15 +7,15 @@ import {
   Form,
   FormControl
 } from "react-bootstrap";
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 
-const  Navbare =()=> {
-  
+const  Navbare =(props)=> {
+  console.log(props);
     return (
       <div>
         <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="/">Ga3da Commerce</Navbar.Brand>
+          <Navbar.Brand >Ga3da Commerce</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -23,11 +23,11 @@ const  Navbare =()=> {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="/login"><Link to="/login">Login</ Link></Nav.Link>
-              <Nav.Link href="/signup"><Link to="/signup">Signup</ Link></Nav.Link>
+              <Nav.Link onClick={()=>props.handleChange('login')}>Login</Nav.Link>
+              <Nav.Link onClick={()=>props.handleChange('sign up')}> Signup </Nav.Link>
               <NavDropdown title="Categories" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
+                <NavDropdown.Item >Action</NavDropdown.Item>
+                <NavDropdown.Item >
                   Another action
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
