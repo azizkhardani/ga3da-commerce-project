@@ -32,7 +32,7 @@ export default class App extends React.Component {
     
         <div>
             {this.renderView.bind(this)}
-            
+
         </div>
         
     )
