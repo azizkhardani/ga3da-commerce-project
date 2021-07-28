@@ -2,32 +2,24 @@ import React, {useState} from 'react';
 import axios from 'axios';
 
 
+const Login=(props)=>{
 
-// const login = (event)=>{
-//     event.preventDefault();
-     
-//     axios.post('/login', {
-//       username: username,
-//       password: password
-//     }).then((response)=>{
-//       console.log(response);
-//       if (response.data.length > 0) {
-        
-//         console.log('logged in');
-//       }
-//     })
-//       .catch((error)=>{
-//         if (error) { alert('Wrong password/username !'); } 
-//       });
-        
-//   };
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
-const Login=()=>{
-
-
+    const login = ()=>{
+        axios.get('/login').then(result=>{
+            if (username === result.data.username && password === result.data.password){
+                console.log(`welcome ${username}`);
+            } else alert("wrong username/password !")
+        }).catch(err=>{
+            console.log(err);
+        })
+    }
 
     return(
         <div>
+            {console.log(props, 'login props')}
             <form id="loginForm" action="login">
                 <h3>Login</h3>
                 <br />
@@ -43,7 +35,12 @@ const Login=()=>{
                     setPassword(e.target.value)
                 }} />
                 <br />
-                <button id="loginBtn" > Login </button>
+                <button id="loginBtn" 
+                onClick={(e)=>{
+                    login()
+                    e.preventDefault()
+                }}
+                > Login </button>
                 <br />
                 <br />
                 <h6>forgot password? </h6>
