@@ -7,7 +7,7 @@ class Profile extends React.Component {
   render() {
     return (
       <div>
-        hello
+        {console.log('--------------------profile',this.props.user)}
       </div>
     );
   }

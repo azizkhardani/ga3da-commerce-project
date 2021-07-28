@@ -31,7 +31,7 @@ sampleUsers = [
 
 const insertSampleUsers = function(){
     User.create(sampleUsers)
-    .then(() => db.disconnect());
+    .then(() => db.disconnect()).catch(err=> console.log(err));
 };
 
 insertSampleUsers();

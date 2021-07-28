@@ -1,32 +1,32 @@
 import React from 'react';
 import axios from 'axios';
-import Profile from './Profile.jsx';
+// import Profile from './Profile.jsx';
 
 export default class Field  extends React.Component {
   constructor(props){
       super(props)
       this.state={
-          firstname:"",
-          lastname:"",
+          name:"",
+          email:"",
           image:"",
-          user:this.props.user
+          user: this.props.user
       }
-      this.handleChangeFirst = this.handleChangeFirst.bind(this)
-      this.handleChangeLast = this.handleChangeLast.bind(this)
+      this.handleChangeName = this.handleChangeName.bind(this)
+      this.handleChangeEmail = this.handleChangeEmail.bind(this)
       this.handleChangeImage = this.handleChangeImage.bind(this)
       this.userAdd = this.userAdd.bind(this)
   }
 // componentWillUnmount(){
 //     this.userAdd()
 // }
-  handleChangeFirst(e){
+handleChangeName(e){
       this.setState({
-        firstname: e.target.value
+        name: e.target.value
       })
   }
-  handleChangeLast(e){
+  handleChangeEmail(e){
     this.setState({
-        lastname: e.target.value
+        email: e.target.value
     })
 }
 handleChangeImage(e){
@@ -40,10 +40,14 @@ axios.post('/api/user', this.state)
 .then((res)=>{
     this.setState({
         user: res.data
-    })
+    },
+    console.log('-----------field',res.data)
+    
+    )
+
 })
-.then((res)=>{
-    this.props.changeView('field')
+.then(()=>{
+    this.props.changeView('profil')
 })
 
 
@@ -52,8 +56,8 @@ axios.post('/api/user', this.state)
     render(){
         return(
             <div>
-                First Name : <input type="text" onChange={(e)=>this.handleChangeFirst(e)} />
-                Last Name : <input type="text" onChange={(e)=>this.handleChangeLast(e)}/>
+                 Name : <input type="text" onChange={(e)=>this.handleChangeName(e)} />
+                Email : <input type="text" onChange={(e)=>this.handleChangeEmail(e)}/>
                 Your Image : <input type="text" onChange={(e)=>this.handleChangeImage(e)}/>
                 <button onClick={()=>this.userAdd()}>JOIN</button>
             </div>

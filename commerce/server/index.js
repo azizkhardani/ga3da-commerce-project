@@ -55,26 +55,43 @@ app.get('/items/:type', (req, res)=>{
   })
 })
 
-// app.post('/api/item', async (req, res) =>{
-//   try{
+app.post('/api/item', async (req, res) =>{
+  try{
     
-//    var user = await Item.create({
-//     itemName: req.body.itemName,
-//     itemDescription: req.body.itemDescription,
-//     itemType: req.body.itemType,
-//     imageUrl: req.body.imageUrl,
-//     price: req.body.price,
-//     quantity: req.body.quantity
-//    })
-//    console.log(req.body.itemName)
+   var user = await Item.create({
+    itemName: req.body.itemName,
+    itemDescription: req.body.itemDescription,
+    itemType: req.body.itemType,
+    imageUrl: req.body.imageUrl,
+    price: req.body.price,
+    quantity: req.body.quantity
+   })
+   console.log(req.body.itemName)
 
-//    res.send(user)
-//   }
-//   catch(err){
-//     console.log(err)
-//   }
-// })
+   res.send(user)
+  }
+  catch(err){
+    console.log(err)
+  }
+})
 
+
+app.post('/api/user', async (req, res) =>{
+  try{
+    
+   var user = await User.create({
+    name: req.body.name,
+    email: req.body.email,
+    image: req.body.image
+    
+   })
+
+   res.send(user)
+  }
+  catch(err){
+    console.log(err)
+  }
+})
 
 // app.get("/Items/:type", async (req, res)=>{
 // const type= req.params.type

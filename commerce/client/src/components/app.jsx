@@ -76,12 +76,12 @@ export default class App extends React.Component {
       return <Signup />;
     }
     else if (view === "field"){
-      return <Field />;
+      return <Field user={this.state.user} changeView={this.changeView}/>;
     }
-    else if (view === "basket"){
-      return <Basket />;
+    else if (view === "profil"){
+      return <Profile user={this.state.user}/>
     }else{
-      return <Profile />
+     return <Basket/>
     }
   }
 
