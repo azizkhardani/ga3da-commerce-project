@@ -4,10 +4,11 @@ const ItemDetails = (props) => {
   return (
     <div className="card">
 
-      <img calssName="card-image" src={props.item.imageUrl} alt="item image" />
+      <img calssname="card-image" src={props.item.imageUrl} alt="item image" />
       
       <div className="card-itemDetails">
-          <h4>{props.item.itemName}</h4>
+          <h3>{props.item.itemName}</h3>
+          <h5>{props.item.itemType}</h5>
           <h5>{props.item.price}</h5>
           <h5>{props.item.itemDescription}</h5>
           <h5>{props.item.quantity}</h5>

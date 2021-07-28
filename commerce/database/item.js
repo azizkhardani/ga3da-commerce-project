@@ -6,9 +6,11 @@ const ItemSchema = new mongoose.Schema(
     {
         itemName: String,
         itemDescription: String,
+        itemType: String,
         imageUrl: String,
         price: Number,
         quantity: Number
+        
     }
     )
     

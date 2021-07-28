@@ -11,13 +11,11 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      items : [],
       view: "home",
-      data: []
-    };
-  }
-
-  componentDidMount(){
-      this.fetchUsers()
+      data: [],
+      
+    }
   }
 
   fetchUsers () {
@@ -44,24 +42,23 @@ export default class App extends React.Component {
     }
   }
 
-getItems(){
-    axios.get("/Items").then(({data})=>{
-        this.setState({items: data})
+  componentDidMount(){
+    axios.get("/Items")
+    .then((res)=>{
+        this.setState({items: res.data})
     })
-}
-
-
-componentDidMount(){
-    this.getItems();
-}
-
+  }
 
   render() {
+  
     return (
     
         <div>
+            {/* {console.log('-------', this.state.items)} */}
+           
+            {/* <Navbar/> */}
             {this.renderView()}
-            <List items= {this.state.items}/>
+            <List items={this.state.items}/>
         </div>
         
     )
