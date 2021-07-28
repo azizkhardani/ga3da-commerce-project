@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack -w",
-    "server": "nodemon server"
+    "server": "nodemon server",
+    "users": "node database/userSeed.js ",
+    "items": "node database/itemSeed.js "
   },
   "keywords": [],
   "author": "",

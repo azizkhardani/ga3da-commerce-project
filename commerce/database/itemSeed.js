@@ -38,7 +38,7 @@ const sampleItems = [
 
 const insertSampleItems = function(){
     Item.create(sampleItems)
-    .then(() => db.disconnect());
+    .then(() => db.disconnect()).catch(err=> console.log(err));
 };
 
 insertSampleItems();
