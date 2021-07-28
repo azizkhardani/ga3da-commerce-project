@@ -41,6 +41,7 @@ app.post('/api/item', async (req, res) =>{
    var user = await Item.create({
     itemName: req.body.itemName,
     itemDescription: req.body.itemDescription,
+    itemType: req.body.itemType,
     imageUrl: req.body.imageUrl,
     price: req.body.price,
     quantity: req.body.quantity
@@ -55,26 +56,25 @@ app.post('/api/item', async (req, res) =>{
 })
 
 
-// app.get("/Items", (req, res)=>{
-//   Item.find({}, (err, data)=>{
-//     if (err){
-//       res.send(500)
-//     }else {
-//       res.send(data)
-//     }
-//   })
-// })
 
+app.get("/Items", async (req, res)=>{
+  try {
+    const findItems = await Item.find({});
+    res.send(findItems);
+  } catch (err) {
+    console.log(err);
+  }
+})
 
-// app.post("/Items", (req, res)=>{
-//   Item.create((req.body), (err, data)=>{
-//     if (err){
-//       res.send(500)
-//     }else{
-//       res.send(data)
-//     }
-//   })
-// })
+app.get("/Items/:type", async (req, res)=>{
+const type= req.params.type
+  try {
+    const findType = await Item.findOne({itemType: type});
+    res.send(findType);
+  } catch (err) {
+    console.log(err);
+  }
+})
 
 
 
