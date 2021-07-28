@@ -11,7 +11,7 @@ import {
 
 
 const  Navbare =(props)=> {
-  console.log(props);
+  console.log(props, 'navbar');
     return (
       <div>
         <Navbar bg="light" expand="lg">
@@ -35,7 +35,7 @@ const  Navbare =(props)=> {
                   Something else here
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="/profile">Profil</Nav.Link>
+              <Nav.Link onClick={()=>props.handleChange('profile')} >Profil</Nav.Link>
               
             </Nav>
             <Form className="d-flex">

@@ -2,7 +2,7 @@ import React from "react";
 import Navbare from "./Navbar.jsx";
 import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
-import List from "./List.jsx";
+import Profile from "./Profile";
 import axios from "axios";
 
 
@@ -11,7 +11,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: "home",
+    //   view: "",
       data: []
     };
   }
@@ -37,19 +37,16 @@ export default class App extends React.Component {
 
   renderView() {
     const { view } = this.state;
-    if (view === "home") {
-      return <Navbare />;
-    } else if (view === "sign up") {
-      return <Signup />
-    }
+    if (view === 'navbar'){
+        return <Navbare />;
+    } 
   }
 
   render() {
     return (
-    
+    // <Navbare />
         <div>
             {this.renderView.bind(this)}
-
         </div>
         
     )

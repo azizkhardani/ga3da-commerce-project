@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-const Signup=()=>{
-
+const Signup=(props)=>{
+console.log(props, 'props signup');
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
@@ -40,7 +40,7 @@ const Signup=()=>{
                 />
                 <br />
                 <br />
-                <button id="signUpBtn" href="/"
+                <button id="signUpBtn"  
                 onClick={(e)=>{
                     signup()
                     e.preventDefault()
