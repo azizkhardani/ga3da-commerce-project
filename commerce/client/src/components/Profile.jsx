@@ -1,13 +1,46 @@
-// import React from "react";
+import React from "react";
 // import Image from "react-bootstrap/Image";
-// // import Card from 'react-bootstrap/Card'
+// import Card from 'react-bootstrap/Card'
 // import { Container, Row, Col } from "react-bootstrap";
 
-// class Profile extends React.Component {
-//   render() {
-//     return (
-//       <div>
-//         <Container>
+class Profile extends React.Component {
+  render() {
+    return (
+      <div>
+        hello
+      </div>
+    );
+  }
+}
+
+export default Profile;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// <Container>
 //           <Row>
 //             <Col xs={3} md={2}>
 //               <Image
@@ -43,9 +76,3 @@
 //             ))
 //         }
 //         </div>
-//       </div>
-//     );
-//   }
-// }
-
-// export default Profile;

@@ -8,25 +8,42 @@ import Basket from "./Basket.jsx";
 import axios from "axios";
 
 export default class App extends React.Component {
+  
   constructor(props) {
     super(props);
     this.state = {
       items: [],
+      users: [],
       view: "home",
       user:[]
     };
     this.changeView = this.changeView.bind(this);
+    this.getItems = this.getItems.bind(this);
+    this.getUsers = this.getUsers.bind(this);
   }
 
   componentDidMount() {
-    
-      axios.get("/Items").then((res) => {
-        this.setState({ items: res.data });
-      });
-    
+    this.getItems();
+    this.getUsers()
   }
 
-  
+  getUsers () {
+    axios.get('/users').then(res =>{
+      // this.setState({users : res.data})
+      console.log(res);
+    }).catch(err=>{
+      console.log(err);
+    })
+    console.log(this.users, "users")
+  }
+  getItems() {
+    axios.get("/items").then((res) => {
+      this.setState({ items: res.data });
+    }).catch(err=>{
+      console.log(err);
+    })
+    console.log(this.items, "items");
+  }
 
   changeView(option) {
    
@@ -49,59 +66,60 @@ export default class App extends React.Component {
   }
 
   renderView() {
-    const { view } = this.state;
+    const { view, items } = this.state;
+
     if (view === "home") {
-      return <Home items={this.state.items}/>;
+      return <Home items={items}/>;
     } else if (view === "login") {
       return <Login />;
     } else if (view === "sign up"){
       return <Signup />;
     }
+    else if (view === "field"){
+      return <Field />;
+    }
+    else if (view === "basket"){
+      return <Basket />;
+    }else{
+      return <Profile />
+    }
   }
+
+ 
 
   render() {
     return (
       <div>
         <div className="nav">
-          <span className="logo" onClick={()=>this.changeView("home")}>
-            Ga3da commerce
-          </span>
+          <span 
+          className="logo"
+          style={{cursor:"pointer"}}
+          onClick={() => this.changeView("home")}> Ga3da commerce </span>
           <span
             className={
               this.state.view === "home" ? "nav-selected" : "nav-unselected"
             }
-            onClick={()=>this.changeView("home")}
-          >
-            Home
-          </span>
+            style={{cursor:"pointer"}}
+            onClick={() => this.changeView("home")}>  Home </span>
           <span
             className="nav-unselected"
-            onClick={()=>this.changeView('login')}
-          >
-            Login
-          </span>
+            style={{cursor:"pointer"}}
+            onClick={() => this.changeView("login")}> Login </span>
           <span
             className="nav-unselected"
-            onClick={()=>this.changeView("sign up")}
-          >
-            Sign up
-          </span>
-          <span
+            style={{cursor:"pointer"}}
+            onClick={() => this.changeView("sign up")}> Sign up </span>
+                <span
             className="nav-unselected"
-            onClick={()=>this.changeView("profil")}
-          >
-            Profil
-          </span>
-          <span
+            style={{cursor:"pointer"}}
+            onClick={() => this.changeView("field")}> Profil </span>
+                <span
             className="nav-unselected"
-            onClick={()=>this.changeView("basket")}
-          >
-            Basket
-          </span>
+            style={{cursor:"pointer"}}
+            onClick={() => this.changeView("basket")}> Basket </span>
         </div>
         <div>
           {this.renderView()}
-          
         </div>
       </div>
     );
