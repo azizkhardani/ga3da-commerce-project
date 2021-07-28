@@ -4,9 +4,9 @@ mongoose.Promise = global.Promise;
 
 const UserSchema = new mongoose.Schema(
     {
-        name: String,
-        password: String,
-        image: String
+        firstname: String,
+        lastname: String,
+        image: String,
     }
     );
     

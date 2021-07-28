@@ -6,8 +6,7 @@ import {
   NavDropdown,
   Form,
   FormControl
-} from "react-bootstrap";
-// import { Link } from 'react-router-dom'
+} from "react-bootstrap" ;
 
 
 const  Navbare =(props)=> {
@@ -24,7 +23,7 @@ const  Navbare =(props)=> {
               navbarScroll
             >
               <Nav.Link onClick={()=>props.changeView('login')}>Login</Nav.Link> 
-              <Nav.Link >Signup</Nav.Link>
+              <Nav.Link onClick={()=>props.changeView('signup')}>Signup</Nav.Link>
               <NavDropdown title="Categories" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">
@@ -35,8 +34,7 @@ const  Navbare =(props)=> {
                   Something else here
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="/profile">Profil</Nav.Link>
-              
+              <Nav.Link onClick={()=>props.changeView('profil')}>Profil</Nav.Link>
             </Nav>
             <Form className="d-flex">
               <FormControl
@@ -46,7 +44,7 @@ const  Navbare =(props)=> {
                 aria-label="Search"
               />
               <Button variant="outline-success">Search</Button>
-              <Nav.Link onClick={()=>props.changeView('login')}>Basket</Nav.Link>
+              <Nav.Link onClick={()=>props.changeView('basket')}>Basket</Nav.Link>
             </Form>
           </Navbar.Collapse>
         </Navbar>

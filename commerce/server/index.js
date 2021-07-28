@@ -11,7 +11,7 @@ app.use(express.static(__dirname + "/../client/build"));
 app.use(express.urlencoded({ extended: true }));
 
 
-app.post('/api/user', async (req, res) =>{
+app.post('/api/item', async (req, res) =>{
    try{
      
     var user = await Item.create([{itemName: req.body.itemName,itemDescription: req.body.itemDescription,imageUrl: req.body.imageUrl,price: req.body.price,quantity: req.body.quantity}])
@@ -22,6 +22,30 @@ app.post('/api/user', async (req, res) =>{
    catch(err){
      console.log(err)
    }
+})
+
+
+app.post('/api/user', async (req, res) =>{
+  try{
+    
+   var user = await User.create([{firstname: req.body.firstname,lastname: req.body.lastname,image: req.body.image}])
+
+   res.send(user)
+  }
+  catch(err){
+    console.log(err)
+  }
+})
+
+
+app.get('/api/user/:id', async (req, res) =>{
+  try{
+   var user = await User.findOne({id: req.params._id})
+   res.send(user)
+  }
+  catch(err){
+    console.log(err)
+  }
 })
 
 
