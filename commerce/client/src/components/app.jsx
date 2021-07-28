@@ -1,32 +1,18 @@
-import React from "react";
-import Navbare from "./Navbar.jsx";
-import Login from "./Login.jsx";
-import Signup from "./Signup.jsx";
-import Profile from "./Profile";
-import axios from "axios";
-
-
+import React from 'react'
+import Login from './Login.jsx';
+import Signup from './Signup.jsx';
+import Home from './Home.jsx';
 
 export default class App extends React.Component {
-  constructor(props) {
+  
+  constructor(props){
     super(props);
-    this.state = {
-    //   view: "",
-      data: []
-    };
-  }
-
-  componentDidMount(){
-      this.fetchUsers()
-  }
-
-  fetchUsers () {
-      axios.get('/users').then(result=>{
-          this.setState({
-              data: result.data
-          })
-          console.log(data, 'users data');
-      })
+    this.state={
+      view : "home",
+      users: [],
+      items: []
+    }
+    this.changeView = this.changeView.bind(this)
   }
 
   changeView(option) {
@@ -35,20 +21,45 @@ export default class App extends React.Component {
     });
   }
 
-  renderView() {
-    const { view } = this.state;
-    if (view === 'navbar'){
-        return <Navbare />;
-    } 
+  renderView(){
+    const {view, users, items} = this.state
+    if (view === "home"){
+      return <Home />
+    } else if (view === "login") {
+      return <Login />
+    } else if (view === "sign up") {
+      return <Signup />
+    }
   }
 
   render() {
     return (
-    // <Navbare />
-        <div>
-            {this.renderView.bind(this)}
+      <div>
+        <div className="nav">
+          <span className="logo"
+            onClick={() => this.changeView('home')}>
+            Ga3da commerce
+          </span>
+          <span className={this.state.view === 'home'
+            ? 'nav-selected'
+            : 'nav-unselected'}
+            onClick={() => this.changeView('home')}>
+            Home
+          </span>
+          <span className="nav-unselected"
+          onClick={ () => this.changeView('login')}>
+            Login
+          </span>
+          <span className="nav-unselected" 
+            onClick={ () => this.changeView('sign up')}>
+            Sign up
+          </span>
         </div>
-        
+        <div className="main">
+          {this.renderView()}
+        </div>
+      </div> 
     )
   }
 }
+
