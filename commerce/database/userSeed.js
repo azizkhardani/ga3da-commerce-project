@@ -1,5 +1,5 @@
 const db = require('./index.js')
-const Item = require('./item.js')
+const User = require('./user.js')
 
 sampleUsers = [
     {
@@ -30,8 +30,8 @@ sampleUsers = [
 
 
 const insertSampleUsers = function(){
-    Item.create(sampleUsers)
-    .then(() => db.disconnect());
+    User.create(sampleUsers)
+    .then(() => db.disconnect()).catch(err=> console.log(err));
 };
 
 insertSampleUsers();
