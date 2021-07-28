@@ -9,7 +9,6 @@ console.log(props, 'props signup');
 
     const signup = ()=>{
         axios.post('/signup', { username, password, email}).then(result=>{
-            console.log(result, 'you signed up!');
         })
     }
 
@@ -43,8 +42,8 @@ console.log(props, 'props signup');
                 <button id="signUpBtn"  
                 onClick={(e)=>{
                     signup()
-                    e.preventDefault()
                 }}
+                onClick={props.handleChange}
                 >Sign Up</button>
             </form>
         </div>

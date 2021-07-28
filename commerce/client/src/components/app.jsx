@@ -2,6 +2,7 @@ import React from "react";
 import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
 import Home from "./Home.jsx";
+import Profile from "./Profile.jsx"
 import axios from "axios";
 
 export default class App extends React.Component {
@@ -15,6 +16,7 @@ export default class App extends React.Component {
     };
     this.changeView = this.changeView.bind(this);
     this.getItems = this.getItems.bind(this);
+    this.getUsers = this.getUsers.bind(this);
   }
 
   componentDidMount() {
@@ -24,20 +26,20 @@ export default class App extends React.Component {
 
   getUsers () {
     axios.get('/users').then(res =>{
-      // this.setState({users : res.data})
-      console.log(res);
+      this.setState({users : res.data})
+      console.log(this.state.users , "users") 
     }).catch(err=>{
       console.log(err);
     })
-    console.log(this.users, "users")
+    
   }
   getItems() {
     axios.get("/items").then((res) => {
       this.setState({ items: res.data });
+      console.log(this.state.items, "items");
     }).catch(err=>{
       console.log(err);
     })
-    console.log(this.items, "items");
   }
 
   changeView(option) {
@@ -54,7 +56,9 @@ export default class App extends React.Component {
     } else if (view === "login") {
       return <Login />;
     } else if (view === "sign up") {
-      return <Signup />;
+      return <Signup handleChange={()=> this.changeView('profile')} />;
+    } else if (view === "profile") {
+      return <Profile />
     }
   }
 
@@ -68,6 +72,10 @@ export default class App extends React.Component {
           className="logo"
           style={{cursor:"pointer"}}
           onClick={() => this.changeView("home")}> Ga3da commerce </span>
+            {/* <span>
+              <input type="text" />
+              <button>search</button>
+            </span> */}
           <span
             className={
               this.state.view === "home" ? "nav-selected" : "nav-unselected"
