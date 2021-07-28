@@ -4,11 +4,12 @@ mongoose.Promise = global.Promise;
 
 const UserSchema = new mongoose.Schema(
     {
-        firstname: String,
-        lastname: String,
-        image: String,
+        name: String,
+        password: String,
+        email: String,
+        image: String
     }
-    );
+);
     
 
 const User = mongoose.model('User', UserSchema);
