@@ -76,12 +76,11 @@ app.post('/api/item', async (req, res) =>{
 })
 
 
-app.post('/api/user', async (req, res) =>{
+app.put('/api/user/:id', async (req, res) =>{
   try{
     
-   var user = await User.create({
-    name: req.body.name,
-    email: req.body.email,
+   var user = await User.findOneAndUpdate({
+     id: req.params._id,
     image: req.body.image
     
    })

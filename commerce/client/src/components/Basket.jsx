@@ -1,3 +1,72 @@
+import React from 'react';
+
+
+const Basket =(props)=>{
+
+
+    return(
+        <div>
+            {/* {console.log(props.basket)} */}
+            {
+                props.basket.map((elm,i)=>(
+                    <div key={i}>
+                        <h4>
+                            {elm.itemName}
+                        </h4>
+                        <img
+                           src= {elm.imageUrl}
+                        />
+                        <h4>{elm.price}</h4>
+                    </div>
+                ))
+            }
+        </div>
+    )
+}
+
+
+export default Basket;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import React from 'react';
 // import axios from 'axios';
 // // import Card from 'react-bootstrap/Card'

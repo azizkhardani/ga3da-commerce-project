@@ -1,19 +1,22 @@
 import React from "react";
-// import Image from "react-bootstrap/Image";
-// import Card from 'react-bootstrap/Card'
-// import { Container, Row, Col } from "react-bootstrap";
+import Create from "./Create.jsx";
 
-class Profile extends React.Component {
+
+
+export default class Profile extends React.Component {
   render() {
     return (
       <div>
-        {console.log('--------------------profile',this.props.user)}
+        {console.log('--------------------profile',this.props.users[0])}
+        <img src={this.props.users[0].image}/>
+        <h5>{this.props.users[0].name}</h5>
+        <h6>{this.props.users[0].email}</h6>
+        <Create/>
       </div>
     );
   }
 }
 
-export default Profile;
 
 
 
